@@ -646,6 +646,10 @@ ngx_mail_auth_external(ngx_mail_session_t *s, ngx_connection_t *c,
 }
 
 
+/*********************************************************************
+函数功能：
+
+*********************************************************************/
 void
 ngx_mail_send(ngx_event_t *wev)
 {
@@ -665,6 +669,7 @@ ngx_mail_send(ngx_event_t *wev)
     }
 
     if (s->out.len == 0) {
+		//ngx_handle_write_event该方法表示将写事件添加到事件驱动模块中
         if (ngx_handle_write_event(c->write, 0) != NGX_OK) {
             ngx_mail_close_connection(c);
         }

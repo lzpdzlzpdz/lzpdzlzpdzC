@@ -863,9 +863,10 @@ ngx_http_handler(ngx_http_request_t *r)
     ngx_http_core_run_phases(r);
 }
 
-/*
+/****************************************************
+函数功能：ngx http最核心的干活函数
 这个函数是调用HTTP的11个阶段的主流程。所有阶段的主逻辑都在checker里面。
-*/
+*****************************************************/
 void
 ngx_http_core_run_phases(ngx_http_request_t *r)
 {

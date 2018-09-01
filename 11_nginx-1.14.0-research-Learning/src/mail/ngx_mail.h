@@ -329,12 +329,16 @@ struct ngx_mail_protocol_s {
 
 
 typedef struct {
+	// POP3 STMP IMAP邮件模块提取出的通用接口
     ngx_mail_protocol_t        *protocol;
 
-    void                       *(*create_main_conf)(ngx_conf_t *cf);
+	// 用于创建main级别配置项的结构体
+    void                       *(*create_main_conf)(ngx_conf_t *cf); 
+    // 解析完main级别配置项后被回调的函数
     char                       *(*init_main_conf)(ngx_conf_t *cf, void *conf);
-
+     // 用于创建srv级别配置项的结构体
     void                       *(*create_srv_conf)(ngx_conf_t *cf);
+	 // 根据具体模块处理srv下和main下同名的配置项
     char                       *(*merge_srv_conf)(ngx_conf_t *cf, void *prev,
                                                   void *conf);
 } ngx_mail_module_t;

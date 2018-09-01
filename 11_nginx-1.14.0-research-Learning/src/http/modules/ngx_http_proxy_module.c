@@ -837,7 +837,18 @@ static ngx_path_init_t  ngx_http_proxy_temp_path = {
     ngx_string(NGX_HTTP_PROXY_TEMP_PATH), { 1, 2, 0 }
 };
 
-
+/********************************************************************
+函数功能：
+nginx upstream机制使得nginx可以成为一个反向代理服务器，nginx一方面从下游客户端接收http请求，处理请求，
+并根据请求发送tcp报文到上游服务器，根据上游服务器的返回报文，来向下游客户端发送请求响应报文。
+upstream机制也提供了负载分担的功能，可以将请求负载分担到集群服务器的某个服务器上面。
+2.1upstream的流程介绍
+1 分析客户端请求报文，构建发往上游服务器的请求报文。
+2 调用ngx_http_upstream_init开始与上游服务器建立tcp连接。
+3 发送在第一步中组建的请求报文。
+4 接收来自上游服务器的响应头并进行解析，往下游转发。
+5 接收来自上游服务器的相应体，进行转发。
+********************************************************************/
 static ngx_int_t
 ngx_http_proxy_handler(ngx_http_request_t *r)
 {
@@ -927,6 +938,8 @@ ngx_http_proxy_handler(ngx_http_request_t *r)
         r->request_body_no_buffering = 1;
     }
 
+	//--开始读取请求包体，读取结束后，开始调用ngx_http_upstream_init，  
+	//--开始upstream的流程  
     rc = ngx_http_read_client_request_body(r, ngx_http_upstream_init);
 
     if (rc >= NGX_HTTP_SPECIAL_RESPONSE) {

@@ -42,6 +42,8 @@ struct ngx_shm_zone_s {
 // modules,conf,listening,connections,events
 struct ngx_cycle_s {
     //为什么conf_ctx要有4重指针？http://www.pagefault.info/?p=368
+    //保存着所有模块存储配置项的结构体指针，它首先是一个数组，每个数组成员又是一个指针，
+    //这个指针指向另一个存储着指针的数组
     void                  ****conf_ctx; // 各个模块的配置
     ngx_pool_t               *pool;
 
@@ -61,6 +63,7 @@ struct ngx_cycle_s {
     ngx_queue_t               reusable_connections_queue;   //再利用连接队列
     ngx_uint_t                reusable_connections_n;
 
+	//存储ngx_listening_t成员
     ngx_array_t               listening;    //监听数组
     ngx_array_t               paths;        //路径数组
 
@@ -68,12 +71,13 @@ struct ngx_cycle_s {
     ngx_rbtree_t              config_dump_rbtree;
     ngx_rbtree_node_t         config_dump_sentinel;
 
-    ngx_list_t                open_files;
+    ngx_list_t                open_files;  //保存Nginx已经打开的所有文件(ngx_open_file_t结构体)的单链表。
     ngx_list_t                shared_memory;    //共享内存链表
 
     ngx_uint_t                connection_n;     //连接个数
     ngx_uint_t                files_n;          //打开文件个数
 
+	//指向当前进程中的所有连接对象，每个连接对象对应一个写事件和一个读事件
     ngx_connection_t         *connections;      //连接
     ngx_event_t              *read_events;      //读事件
     ngx_event_t              *write_events;     //写事件
