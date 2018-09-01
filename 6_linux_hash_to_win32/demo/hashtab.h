@@ -73,25 +73,10 @@ void *ht_insert(hashtab_head * hashtable,
  * does not exist, no error is given. */
 void ht_remove(hashtab_head * hashtable, void *key, size_t keylen);
 
-/* Change the size of the hashtable. It will allocate a new hashtable
- * and move all keys and values over. The pointer to the new hashtable
- * is returned. Will return NULL if the new hashtable fails to be
- * allocated. If this happens, the old hashtable will not be altered
- * in any way. The old hashtable is destroyed upon a successful
- * grow. */
-void *ht_grow(hashtab_head * hashtable, size_t new_size);
 
 /* Free all resources used by the hashtable. */
 void ht_destroy(hashtab_head * hashtable);
 
-/* Initialize the given iterator. It will point to the first element
- * in the hashtable. */
-void ht_iter_init(hashtab_head * hashtable, hashtab_iter_t * ii);
-
-/* Increment the iterator to the next element. The iterator key and
- * value will point to NULL values when the iterator has reached the
- * end of the hashtable.  */
-void ht_iter_inc(hashtab_iter_t * ii);
 
 /* Default hashtable hash function. */
 int ht_hash(void *key, size_t key_size, size_t hashtab_size);

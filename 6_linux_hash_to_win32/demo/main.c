@@ -1,11 +1,10 @@
 /* main.c - Hashtable test
  */
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include "hashtab.h"
-#include "strht.h"
+
 
 #define strht_search(h, k)    ht_search(h, k, strlen(k) + 1)
 #define strht_insert(h, k, v) ht_insert(h, k, strlen(k) + 1, v, strlen(v) + 1)
