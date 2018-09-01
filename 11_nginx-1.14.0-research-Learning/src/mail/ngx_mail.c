@@ -27,6 +27,9 @@ static ngx_int_t ngx_mail_cmp_conf_addrs(const void *one, const void *two);
 ngx_uint_t  ngx_mail_max_module;
 
 
+/*************************************************************************
+函数功能：mail入口
+*************************************************************************/
 static ngx_command_t  ngx_mail_commands[] = {
 
     { ngx_string("mail"),

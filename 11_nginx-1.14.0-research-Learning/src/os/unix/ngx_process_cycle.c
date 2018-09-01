@@ -69,6 +69,7 @@ static ngx_cycle_t      ngx_exit_cycle;
 static ngx_log_t        ngx_exit_log;
 static ngx_open_file_t  ngx_exit_log_file;
 
+/****************************************************************************************
 // master-worker进程模型
 // master主流程loop
 // 1. ngx_start_worker_processes：fork & run workers
@@ -77,6 +78,9 @@ static ngx_open_file_t  ngx_exit_log_file;
 // --terminate:ngx_signal_worker_processes(cycle, ngx_signal_value(NGX_TERMINATE_SIGNAL));
 // --quit:ngx_signal_worker_processes(cycle, ngx_signal_value(NGX_SHUTDOWN_SIGNAL));
 // --reconfigure:老的worker进程shutdown,并且start_new_workers
+1 主进程：信号处理
+2 工作进程：事件处理
+****************************************************************************************/
 void
 ngx_master_process_cycle(ngx_cycle_t *cycle)
 {
@@ -137,7 +141,7 @@ ngx_master_process_cycle(ngx_cycle_t *cycle)
     //master进程获取core模块配置，ccf中有要创建多少个worker的设定
     ccf = (ngx_core_conf_t *) ngx_get_conf(cycle->conf_ctx, ngx_core_module);
 
-    //启动worker
+    //启动工作进程works
     ngx_start_worker_processes(cycle, ccf->worker_processes,
                                NGX_PROCESS_RESPAWN);
     ngx_start_cache_manager_processes(cycle, 0); //创建有关cache的子进程
@@ -375,7 +379,12 @@ ngx_single_process_cycle(ngx_cycle_t *cycle)
     }
 }
 
-/*启动工作进程：两个任务，1是设置父子进程通信，2是根据配置循环创建所有的工作进程*/
+
+/******************************************************************************
+函数功能：启动工作进程：两个任务，
+1 是设置父子进程通信，
+2 是根据配置循环创建所有的工作进程
+******************************************************************************/
 static void
 ngx_start_worker_processes(ngx_cycle_t *cycle, ngx_int_t n, ngx_int_t type)
 {
@@ -392,6 +401,7 @@ ngx_start_worker_processes(ngx_cycle_t *cycle, ngx_int_t n, ngx_int_t type)
     //循环创建n个worker子进程
     for (i = 0; i < n; i++) {
         //fork新进程的具体工作，ngx_worker_process_cycle函数是工作进程要执行的具体工作
+        //ngx 大量创建子进程
         ngx_spawn_process(cycle, ngx_worker_process_cycle,
                           (void *) (intptr_t) i, "worker process", type);
         //注意，ngx_process_slot在spawn函数中已经赋值完毕，就是当前子进程的位置

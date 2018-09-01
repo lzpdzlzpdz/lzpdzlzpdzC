@@ -91,6 +91,18 @@ ngx_module_t  ngx_http_index_module = {
  * Besides, Win32 may return ERROR_PATH_NOT_FOUND (NGX_ENOTDIR) at once.
  * Unix has ENOTDIR error; however, it's less helpful than Win32's one:
  * it only indicates that path points to a regular file, not a directory.
+
+ 如果直接访问的是一个目录，Nginx先是查看当前目录是否存在index..html/index.htm/index.php
+ 等这样的默认页面<ngx_http_index_handler（）的工作>，如果不存在默认页面，
+ 就返回一个文件列表页面<ngx_http_autoindex_handler()的工作>，
+ 而ngx_http_static_handler（）是根据客户端静态页面请求查找对应的页面文件并组成待相应内容。
+ ②filters：对handlers产生的响应数据做各种过滤处理（即增/删/改），比如模块
+ 关于ngx_http_index_handler介绍
+     主要功能：
+1）  打开index指令配置文件的根文件index.html，
+2）  如果httprequest header 的uri不以'/'结尾，返回NGX_DECLINED；
+3） 如果以'/'结尾，就会在最后调用ngx_http_internal_redirect，该函数实现nginx的internalredirect的方式之一，
+修改了request header之后，就会重新调用ngx_http_handler。
  */
 
 static ngx_int_t

@@ -69,6 +69,8 @@ ngx_array_destroy(ngx_array_t *a)
  *
  * @param a
  * @return
+ * 输入：需要插入元素的数组
+ * 返回：新的元素的指针
  */
 void *
 ngx_array_push(ngx_array_t *a)
