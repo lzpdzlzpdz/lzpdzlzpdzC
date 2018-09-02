@@ -39,20 +39,20 @@ int main(){
     hlist_add_head(&node3.hlist, &rm_hlist_head);
 
 	printf("-----list node-----\n");
-    hlist_for_each_entry_safe_ext(pos, fsnode, node, &rm_hlist_head, list) 
+    hlist_for_each_entry_safe_ext(pos, fsnode, node, &rm_hlist_head, hlist) 
 	{
         printf("list find %d,\n", pos->val);    
     }
 
 	printf("------del all node in no safety------\n");
-    hlist_for_each_entry_safe_ext(pos, fsnode, node,&rm_hlist_head, list) 
+    hlist_for_each_entry_safe_ext(pos, fsnode, node,&rm_hlist_head, hlist) 
 	{
         printf("del node,list find %d,\n", pos->val);    
 	    //list_del(&pos->list);
     }
 
 	printf("-----del all node in safety------\n");
-    hlist_for_each_entry_safe_ext(pos, fsnode, node,&rm_hlist_head, list) 
+    hlist_for_each_entry_safe_ext(pos, fsnode, node,&rm_hlist_head, hlist) 
 	{
         printf("del node,list find %d,\n", pos->val);    
 	    hlist_del(&pos->hlist);
