@@ -28,8 +28,33 @@ typedef struct hashtab_node_t {
     struct hashtab_node_t *next;	/* next node (open hashtable) */
 } hashtab_node_t;
 
+
+/******************************************************
+1. The two level pointer can be used to store memory address or pointer array.
+**pparr = {p1,p2,p3}
+pparr[0] = {p1,p2,p3}[0] = p1
+
+&p1-----  p1---------p1 info
+|
+pparr----pparr[0]----pparr[0][0]
+
+2. The one level pointer can be used to store data address or  array.
+
+ p1---------p1 info
+|
+q----q[0]
+
+3. hashtab_node_t **pparr is used to save pointer array,
+
+hashtab_node_t *pos_node;
+
+hashtable->pparr[index]  = p_new_node;
+
+pos_node = hashtable->pparr[index];
+
+******************************************************/
 typedef struct hashtab_head {
-    hashtab_node_t **parr;
+    hashtab_node_t **pparr; /*save slot-cell arr*/
     size_t slotnum;		/* number of slots in hash table */
     int cellcnt;			/* number of elements in hash table */
     int (*hash_func) (void *, size_t, size_t);	/* hash function */
