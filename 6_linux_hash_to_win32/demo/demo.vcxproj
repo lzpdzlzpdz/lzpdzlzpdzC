@@ -11,11 +11,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="hashtab.c" />
-    <ClCompile Include="main.c" />
+    <ClCompile Include="example.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="hashtab.h" />
+    <ClInclude Include="list.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{DE7E255E-130D-4A7D-A626-D2B291372EEE}</ProjectGuid>

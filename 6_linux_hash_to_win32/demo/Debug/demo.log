@@ -1,27 +1,108 @@
-﻿生成启动时间为 2018/9/2 0:00:36。
+﻿生成启动时间为 2018/9/2 11:22:31。
      1>项目“E:\8_Git\Git_C_Code\6_linux_hash_to_win32\demo\demo.vcxproj”在节点 2 上(build 个目标)。
      1>InitializeBuildStatus:
-         正在创建“Debug\demo.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+         正在对“Debug\demo.unsuccessfulbuild”执行 Touch 任务。
        ClCompile:
-         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt main.c
-         main.c
-       ManifestResourceCompile:
-         所有输出均为最新。
-       Link:
-         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\8_Git\Git_C_Code\6_linux_hash_to_win32\Debug\demo.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\demo.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\8_Git\Git_C_Code\6_linux_hash_to_win32\Debug\demo.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\8_Git\Git_C_Code\6_linux_hash_to_win32\Debug\demo.lib" /MACHINE:X86 Debug\demo.exe.embed.manifest.res
-         Debug\hashtab.obj
-         Debug\main.obj
-       Manifest:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\demo.exe.embed.manifest" /manifest Debug\demo.exe.intermediate.manifest
-         所有输出均为最新。
-       LinkEmbedManifest:
-         所有输出均为最新。
-         demo.vcxproj -> E:\8_Git\Git_C_Code\6_linux_hash_to_win32\Debug\demo.exe
-       FinalizeBuildStatus:
-         正在删除文件“Debug\demo.unsuccessfulbuild”。
-         正在对“Debug\demo.lastbuildstate”执行 Touch 任务。
-     1>已完成生成项目“E:\8_Git\Git_C_Code\6_linux_hash_to_win32\demo\demo.vcxproj”(build 个目标)的操作。
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt example.c
+         example.c
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(48): error C2143: 语法错误 : 缺少“;”(在“类型”的前面)
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(50): error C2143: 语法错误 : 缺少“;”(在“类型”的前面)
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(52): error C2143: 语法错误 : 缺少“;”(在“类型”的前面)
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(54): error C2143: 语法错误 : 缺少“;”(在“类型”的前面)
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(56): error C2065: “people”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(56): error C2224: “.id”的左侧必须具有结构/联合类型
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(58): error C2065: “people”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(58): error C2224: “.name”的左侧必须具有结构/联合类型
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(60): error C2065: “people”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(60): error C2224: “.hlist”的左侧必须具有结构/联合类型
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(60): error C2065: “hhead”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(60): warning C4133: “函数”: 从“int *”到“hlist_node *”的类型不兼容
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(60): error C2198: “hlist_add_head”: 用于调用的参数太少
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(62): error C2065: “p”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(62): error C2065: “hhead”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(62): error C2223: “->first”的左侧必须指向结构/联合
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(62): error C2065: “p”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(62): error C2065: “p”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(62): error C2065: “p”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(62): error C2223: “->next”的左侧必须指向结构/联合
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(65): error C2065: “entry”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(65): error C2065: “p”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(65): warning C4047: “=”:“int”与“hlist *”的间接级别不同
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(67): error C2065: “entry”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(67): error C2223: “->id”的左侧必须指向结构/联合
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(69): error C2065: “entry”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(69): error C2223: “->name”的左侧必须指向结构/联合
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(71): error C2143: 语法错误 : 缺少“;”(在“类型”的前面)
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(76): error C2143: 语法错误 : 缺少“;”(在“类型”的前面)
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(77): error C2065: “ch”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(78): error C2065: “ch”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(81): error C2065: “people”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(81): error C2224: “.hlist”的左侧必须具有结构/联合类型
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(81): error C2198: “hlist_del”: 用于调用的参数太少
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(87): error C2065: “errcount”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(88): error C2065: “errcount”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(96): error C2065: “hhead”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(96): warning C4133: “函数”: 从“int *”到“const hlist_head *”的类型不兼容
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(101): warning C4013: “sleep”未定义；假设外部返回 int
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(114): error C2143: 语法错误 : 缺少“;”(在“类型”的前面)
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(116): error C2143: 语法错误 : 缺少“;”(在“类型”的前面)
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(118): error C2143: 语法错误 : 缺少“;”(在“类型”的前面)
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(120): error C2143: 语法错误 : 缺少“;”(在“类型”的前面)
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(123): error C2065: “people”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(123): error C2224: “.name”的左侧必须具有结构/联合类型
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(125): error C2065: “people”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(125): error C2224: “.company_name”的左侧必须具有结构/联合类型
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(127): error C2065: “people”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(127): error C2224: “.seq_number”的左侧必须具有结构/联合类型
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(128): error C2065: “people”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(128): error C2224: “.list”的左侧必须具有结构/联合类型
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(128): error C2065: “head”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(128): warning C4133: “函数”: 从“int *”到“list_head *”的类型不兼容
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(128): error C2198: “list_add”: 用于调用的参数太少
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(142): warning C4013: “list_for_each_entry”未定义；假设外部返回 int
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(142): error C2065: “entry”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(142): error C2065: “head”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(142): error C2065: “list”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(143): error C2143: 语法错误 : 缺少“;”(在“{”的前面)
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(144): error C2065: “entry”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(144): error C2223: “->name”的左侧必须指向结构/联合
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(145): error C2065: “entry”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(145): error C2223: “->company_name”的左侧必须指向结构/联合
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(146): error C2065: “entry”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(146): error C2223: “->seq_number”的左侧必须指向结构/联合
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(151): error C2065: “p”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(151): error C2065: “head”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(151): error C2223: “->prev”的左侧必须指向结构/联合
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(151): error C2065: “p”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(151): error C2065: “head”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(151): warning C4047: “!=”:“int”与“int *”的间接级别不同
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(151): error C2065: “p”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(151): error C2065: “p”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(151): error C2223: “->prev”的左侧必须指向结构/联合
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(153): error C2065: “entry”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(153): error C2065: “p”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(153): warning C4047: “=”:“int”与“list *”的间接级别不同
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(154): error C2065: “entry”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(154): error C2223: “->name”的左侧必须指向结构/联合
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(155): error C2065: “entry”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(155): error C2223: “->company_name”的左侧必须指向结构/联合
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(156): error C2065: “entry”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(156): error C2223: “->seq_number”的左侧必须指向结构/联合
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(159): error C2143: 语法错误 : 缺少“;”(在“类型”的前面)
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(161): error C2143: 语法错误 : 缺少“;”(在“类型”的前面)
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(164): error C2065: “ch”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(165): error C2065: “ch”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(169): error C2065: “people”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(169): error C2224: “.list”的左侧必须具有结构/联合类型
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(169): error C2198: “list_del”: 用于调用的参数太少
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(171): error C2065: “head”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(171): warning C4133: “函数”: 从“int *”到“const list_head *”的类型不兼容
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(178): error C2065: “head”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(178): warning C4133: “函数”: 从“int *”到“const list_head *”的类型不兼容
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(185): error C2065: “errcount”: 未声明的标识符
+     1>e:\8_git\git_c_code\6_linux_hash_to_win32\demo\example.c(190): error C2065: “errcount”: 未声明的标识符
+     1>已完成生成项目“E:\8_Git\Git_C_Code\6_linux_hash_to_win32\demo\demo.vcxproj”(build 个目标)的操作 - 失败。
 
-生成成功。
+生成失败。
 
-已用时间 00:00:01.50
+已用时间 00:00:00.47

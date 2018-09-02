@@ -15,15 +15,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="hashtab.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="main.c">
+    <ClCompile Include="example.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="hashtab.h">
+    <ClInclude Include="list.h">
       <Filter>源文件</Filter>
     </ClInclude>
   </ItemGroup>
