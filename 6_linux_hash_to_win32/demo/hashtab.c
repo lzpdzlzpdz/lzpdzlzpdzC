@@ -12,7 +12,7 @@ hashtab_head *ht_init(size_t init_slot_num, int (*hash_func) (void *, size_t, si
     hashtab_head *new_ht = (hashtab_head *) malloc(sizeof(hashtab_head));
     int loop = 0;
 
-    new_ht->parr =
+    new_ht->pparr =
 	(hashtab_node_t **) malloc(sizeof(hashtab_node_t *) * init_slot_num);
 
 	printf("sizeof hashtab_node_t *=%d\n",sizeof(hashtab_node_t *));
@@ -22,7 +22,7 @@ hashtab_head *ht_init(size_t init_slot_num, int (*hash_func) (void *, size_t, si
     /* all entries are empty */
     for (loop = 0; loop < (int) init_slot_num; loop++) 
 	{
-		new_ht->parr[loop] = NULL;
+		new_ht->pparr[loop] = NULL;
     }
 
     if (hash_func == NULL)
@@ -39,15 +39,21 @@ hashtab_head *ht_init(size_t init_slot_num, int (*hash_func) (void *, size_t, si
 
 void *ht_search(hashtab_head * hashtable, void *key, size_t keylen)
 {
-    int index = ht_hash(key, keylen, hashtable->slotnum);
+    int index = 0;
 	hashtab_node_t *pos_node = NULL;
 
-    if (hashtable->parr[index] == NULL)
+	if(NULL == hashtable)
+	{
+		return;
+	}
+
+	index = ht_hash(key, keylen, hashtable->slotnum);
+    if (hashtable->pparr[index] == NULL)
 	{
 		return NULL;
 	}
 
-	for(pos_node = hashtable->parr[index]; pos_node != NULL; pos_node = pos_node->next)
+	for(pos_node = hashtable->pparr[index]; pos_node != NULL; pos_node = pos_node->next)
 	{
 		/* only compare matching keylens */
 		if (pos_node->keylen == keylen) 
@@ -66,15 +72,22 @@ void *ht_search(hashtab_head * hashtable, void *key, size_t keylen)
 void *ht_insert(hashtab_head * hashtable,
 		void *key, size_t keylen, void *value, size_t vallen)
 {
-    int index = ht_hash(key, keylen, hashtable->slotnum);
+    int index = 0;
 	hashtab_node_t *new_node;
     hashtab_node_t *pos_node, *last_node;
     last_node = NULL;
 
+
+	if(NULL == hashtable)
+	{
+		return;
+	}
+
+	index = ht_hash(key, keylen, hashtable->slotnum);
 	printf("index = %d\n", index);
 
     /*如果hash表的槽位号不为空，查询元素是否已经存�*/
-	for(pos_node = hashtable->parr[index]; pos_node != NULL; pos_node = pos_node->next)
+	for(pos_node = hashtable->pparr[index]; pos_node != NULL; pos_node = pos_node->next)
 	{
 		if (pos_node->keylen == keylen) {
 			/* compare keys */
@@ -132,7 +145,7 @@ void *ht_insert(hashtab_head * hashtable,
 	}
     else
 	{
-		hashtable->parr[index] = new_node;
+		hashtable->pparr[index] = new_node;
 	}
     hashtable->cellcnt++;
     return new_node->value;
@@ -142,10 +155,17 @@ void *ht_insert(hashtab_head * hashtable,
 void ht_remove(hashtab_head * hashtable, void *key, size_t keylen)
 {
     hashtab_node_t *last_node, *pos_node;
-    int index = ht_hash(key, keylen, hashtable->slotnum);
+    int index = 0;
     last_node = NULL;
 
-	for(pos_node = hashtable->parr[index]; pos_node != NULL; pos_node = pos_node->next)
+	if(NULL == hashtable)
+	{
+		return;
+	}
+
+
+	index = ht_hash(key, keylen, hashtable->slotnum);
+	for(pos_node = hashtable->pparr[index]; pos_node != NULL; pos_node = pos_node->next)
 	{
 		if (pos_node->keylen == keylen) 
 		{
@@ -160,7 +180,7 @@ void ht_remove(hashtab_head * hashtable, void *key, size_t keylen)
 				if (last_node != NULL)
 				    last_node->next = pos_node->next;
 				else
-				    hashtable->parr[index] = pos_node->next;
+				    hashtable->pparr[index] = pos_node->next;
 
 				/* free the node */
 				free(pos_node);
@@ -176,12 +196,18 @@ void ht_remove(hashtab_head * hashtable, void *key, size_t keylen)
 void ht_destroy(hashtab_head * hashtable)
 {
     hashtab_node_t *pos_node, *last_node;
+    int loop;
+
+
+	if(NULL == hashtable)
+	{
+		return;
+	}
 
     /* Free each linked list in hashtable. */
-    int loop;
     for (loop = 0; loop < (int) hashtable->slotnum; loop++)
 	{
-		pos_node = hashtable->parr[loop];
+		pos_node = hashtable->pparr[loop];
 		while(pos_node != NULL)
 		{
 		    /* destroy node */
@@ -193,7 +219,7 @@ void ht_destroy(hashtab_head * hashtable)
 		}
     }
 
-    free(hashtable->parr);
+    free(hashtable->pparr);
     free(hashtable);
 }
 
@@ -203,8 +229,9 @@ int ht_hash(void *key, size_t keylen, size_t hashtab_size)
 
     /* very simple hash function for now */
     int loop;
-    for (loop = 0; loop < (int) keylen; loop++) {
-	sum += ((unsigned char *) key)[loop] * (loop + 1);
+    for (loop = 0; loop < (int) keylen; loop++) 
+	{
+		sum += ((unsigned char *) key)[loop] * (loop + 1);
     }
 
     return (sum % (int) hashtab_size);

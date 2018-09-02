@@ -16,10 +16,14 @@ void ht_print_hash_tab(hashtab_head * hashtable)
     hashtab_node_t *pos_node;
     int loop;
     /* Free each linked list in hashtable. */
+	if(NULL == hashtable)
+	{
+		return;
+	}
 
     for (loop = 0; loop < (int) hashtable->slotnum; loop++)
 	{
-		for(pos_node = hashtable->parr[loop]; pos_node != NULL; pos_node = pos_node->next)
+		for(pos_node = hashtable->pparr[loop]; pos_node != NULL; pos_node = pos_node->next)
 		{
 		    /* print node */
 			printf("pos_node->key = %s, pos_node_value = %s\n",(char *)(pos_node->key),(char *)(pos_node->value));
