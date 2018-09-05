@@ -2,8 +2,17 @@
 GNU C transplant to ANSI C
 1. size_t ----> unsigned int
 2. inline ----> __inline
-3. typeof ----> 从宏明确传递结构体声明
-4. 推荐使用安全函数，list_for_each_entry_safe_ext 
+3. typeof(*tpos) ---->input the entry_type.
+4. pls use the list_for_each_entry_safe_ext ,it is safety.
+5. hlist_for_each_entry_safe---->hlist_for_each_entry_safe_ext
+#define hlist_for_each_entry_safe(tpos, pos, n, head, member) 		 \
+	for (pos = (head)->first;					 \
+	     pos && ({ n = pos->next; 1; }) && 				 \
+		({ tpos = hlist_entry(pos, typeof(*tpos), member); 1;}); \
+	     pos = n)
+(1) cannot use typeof(*tpos) in ANSI C
+(2) cannot use {xxx;1:} in ANSI C
+(3) cannot define a parameter in Macro in ANSI C.
 ************************************************/
 #ifndef _LINUX_LIST_H
 #define _LINUX_LIST_H
@@ -33,10 +42,17 @@ struct list_head {
  * using the generic single-entry routines.
  */
 
+
 #define LIST_HEAD_INIT(name) { &(name), &(name) }
 
 #define LIST_HEAD(name) \
 	struct list_head name = LIST_HEAD_INIT(name)
+
+static inline void INIT_LIST_NODE(struct list_head *list)
+{
+	list->next = NULL;
+	list->prev = NULL;
+}
 
 static inline void INIT_LIST_HEAD(struct list_head *list)
 {
@@ -708,51 +724,19 @@ static inline void hlist_move_list(struct hlist_head *old,
 	for (pos = (head)->first; pos && ({ n = pos->next; 1; }); \
 	     pos = n)
 
-#define hlist_entry_safe(ptr, pos_type, member) \
-	({ pos_type *____ptr = (ptr); \
-	   ____ptr ? hlist_entry(____ptr, pos_type, member) : NULL; \
-	})
-
-/**
- * hlist_for_each_entry	- iterate over list of given type
- * @pos:	the type * to use as a loop cursor.
- * @head:	the head for your list.
- * @member:	the name of the hlist_node within the struct.
- */
-#define hlist_for_each_entry(pos, head, member)				\
-	for (pos = hlist_entry_safe((head)->first, pos_type, member);\
-	     pos;							\
-	     pos = hlist_entry_safe((pos)->member.next, pos_type, member))
-
-/**
- * hlist_for_each_entry_continue - iterate over a hlist continuing after current point
- * @pos:	the type * to use as a loop cursor.
- * @member:	the name of the hlist_node within the struct.
- */
-#define hlist_for_each_entry_continue(pos, member)			\
-	for (pos = hlist_entry_safe((pos_type)->member.next, pos_type, member);\
-	     pos;							\
-	     pos = hlist_entry_safe((pos_type)->member.next, pos_type, member))
-
-/**
- * hlist_for_each_entry_from - iterate over a hlist continuing from current point
- * @pos:	the type * to use as a loop cursor.
- * @member:	the name of the hlist_node within the struct.
- */
-#define hlist_for_each_entry_from(pos_type, member)				\
-	for (; pos;							\
-	     pos = hlist_entry_safe((pos)->member.next, pos_type, member))
-
 /**
  * hlist_for_each_entry_safe - iterate over list of given type safe against removal of list entry
+ * @entry: app info
+ * @entry_type: the type of entry
  * @pos:	the type * to use as a loop cursor.
- * @n:		another &struct hlist_node to use as temporary storage
+ * @tpos:	another &struct hlist_node to use as temporary storage
  * @head:	the head for your list.
- * @member:	the name of the hlist_node within the struct.
+ * @entry_member:	the name of the hlist_node within the struct.
  */
-#define hlist_for_each_entry_safe_ext(pos, pos_type, n, head, member) 		\
-		for (pos = hlist_entry_safe((head)->first, pos_type, member);\
-			 pos && ({ n = pos->member.next; 1; }); 		\
-			 pos = hlist_entry_safe(n, pos_type, member))
+#define hlist_for_each_entry_safe_ext(entry, entry_type, pos, tpos,head, entry_member) 		\
+for (pos = (head)->first; \
+	 pos && (tpos = pos->next,pos) && \
+	( entry = hlist_entry(pos, entry_type, entry_member),pos); \
+	 pos = tpos)
 	
 #endif

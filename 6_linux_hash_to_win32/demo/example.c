@@ -1,6 +1,9 @@
 #include<stdio.h>
 #include"list.h"
 
+#define max_hash_slot_num 6
+#define max_entry_num 18
+
 static inline void INIT_LIST_NODE(struct list_head *list)
 {
 	list->next = NULL;
@@ -12,55 +15,76 @@ typedef struct _fsnode {
     struct hlist_node hlist;
 } fsnode;
 
-struct hlist_head rm_hlist_head;
+struct hlist_head rm_hlist_head[max_hash_slot_num];
 
+int cal_hash_val(int cell_val)
+{
+    return cell_val%max_hash_slot_num;
+}
 
 int main(){
-    fsnode node1;
-    fsnode node2;
-    fsnode node3;
-    fsnode *pos = NULL;
-    fsnode *node = NULL;
+    fsnode node[max_entry_num];
+
+    fsnode *entry = NULL;
+    struct hlist_node *pos = NULL;
+    struct hlist_node *tpos = NULL;
+	int loop = 0;
+    int slop_loop = 0;
+
 
 	printf("-----init Hlist hlist_head-----\n");
-    INIT_HLIST_HEAD(&rm_hlist_head);
-
-	printf("-----init node-----\n");
-    INIT_HLIST_NODE(&node1.hlist);
-    node1.val = 111;
-    INIT_HLIST_NODE(&node2.hlist);
-    node2.val = 222;
-    INIT_HLIST_NODE(&node3.hlist);
-    node3.val = 333;
-
-	printf("-----add node-----\n");
-    hlist_add_head(&node1.hlist, &rm_hlist_head);
-    hlist_add_head(&node2.hlist, &rm_hlist_head);
-    hlist_add_head(&node3.hlist, &rm_hlist_head);
-
-	printf("-----list node-----\n");
-    hlist_for_each_entry_safe_ext(pos, fsnode, node, &rm_hlist_head, hlist) 
+	for(slop_loop = 0; slop_loop < max_hash_slot_num; slop_loop++)
 	{
-        printf("list find %d,\n", pos->val);    
+    	INIT_HLIST_HEAD(&rm_hlist_head[loop]);
+	}
+
+	printf("-----init and add node-----\n");
+	for(loop = 0; loop < max_entry_num; loop++)
+    {   
+        INIT_HLIST_NODE(&node[loop].hlist);
+        node[loop].val = loop+50;
+        hlist_add_head(&node[loop].hlist, &rm_hlist_head[cal_hash_val(node[loop].val)]);
     }
 
-	printf("------del all node in no safety------\n");
-    hlist_for_each_entry_safe_ext(pos, fsnode, node,&rm_hlist_head, hlist) 
+
+    printf("-----list  pos-----\n");
+	for (pos = rm_hlist_head[0].first; 
+		 pos && (tpos = pos->next,pos) && 
+		( entry = hlist_entry(pos, fsnode, hlist),pos); 
+		 pos = tpos)
 	{
-        printf("del node,list find %d,\n", pos->val);    
-	    //list_del(&pos->list);
+        printf("slop_index = 0, list find %d,\n", entry->val);    
     }
 
-	printf("-----del all node in safety------\n");
-    hlist_for_each_entry_safe_ext(pos, fsnode, node,&rm_hlist_head, hlist) 
-	{
-        printf("del node,list find %d,\n", pos->val);    
-	    hlist_del(&pos->hlist);
+	printf("-----list pos-----\n");
+    loop = 0;
+    for(slop_loop = 0; slop_loop < max_hash_slot_num; slop_loop++)
+    {
+        hlist_for_each_entry_safe_ext(entry, fsnode, pos, tpos, &rm_hlist_head[slop_loop], hlist) 
+    	{
+            printf("list slop_loop = %d, cell_loop = %d, list find %d,\n", slop_loop, loop ,entry->val);  
+            loop++;
+        }
+    }
+
+	printf("-----del all pos in safety------\n");
+    loop = 0;
+    for(slop_loop = 0; slop_loop < max_hash_slot_num; slop_loop++)
+    {
+
+        hlist_for_each_entry_safe_ext(entry, fsnode, pos, tpos, &rm_hlist_head[slop_loop], hlist) 
+        {
+            printf("del slop_loop = %d, cell_loop = %d, list find %d,\n", slop_loop, loop ,entry->val);    
+            hlist_del(&entry->hlist);
+            loop++;
+        }
     }
 
     if (hlist_empty(&rm_hlist_head)) {
         printf("list is null\n");
     }
+
+    
     return 0;
 }
 
