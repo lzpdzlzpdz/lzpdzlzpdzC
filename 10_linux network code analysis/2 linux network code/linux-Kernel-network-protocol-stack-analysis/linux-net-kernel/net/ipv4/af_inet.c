@@ -1314,7 +1314,7 @@ static int inet_gso_send_check(struct sk_buff *skb)
 	rcu_read_lock();
 	ops = rcu_dereference(inet_protos[proto]);
 	if (likely(ops && ops->gso_send_check)) //²Î¿¼ÕâÀïstruct net_protocol 
-		err = ops->gso_send_check(skb);¡//ip_packet_type
+		err = ops->gso_send_check(skb);?/ip_packet_type
 	rcu_read_unlock();
 
 out:
@@ -1399,7 +1399,7 @@ static struct sk_buff *inet_gso_segment(struct sk_buff *skb, int features)
 	rcu_read_lock();
 	ops = rcu_dereference(inet_protos[proto]);
 	if (likely(ops && ops->gso_segment))//icmp_protocol¡¢udp_protocol¡¢tcp_protocolºÍigmp_protocol
-		segs = ops->gso_segment(skb, features);¡//·Ö¶ÎµÃµ½µÄĞÂ¶ÎÍ¨¹ınextÁ´±íÔÚÔ­ÏÈµÄ¶ÎÖ®ºó
+		segs = ops->gso_segment(skb, features);?/·Ö¶ÎµÃµ½µÄĞÂ¶ÎÍ¨¹ınextÁ´±íÔÚÔ­ÏÈµÄ¶ÎÖ®ºó
 	rcu_read_unlock();
 
 	if (!segs || IS_ERR(segs))
@@ -1727,10 +1727,13 @@ static struct packet_type ip_packet_type = {// __read_mostly = {
 	.gro_complete = inet_gro_complete, 
 };
 
+/*****************************************************
+º¯Êı¹¦ÄÜ:1 IPV4×¢²á
 //Éè±¸ÎïÀí²ãµÄ³õÊ¼»¯net_dev_init
  //TCP/IPĞ­ÒéÕ»³õÊ¼»¯inet_init ÆäÊµ´«Êä²ãµÄĞ­Òé³õÊ¼»¯Ò²ÔÚÕâÀïÃæ
  //´«Êä²ã³õÊ¼»¯proto_init  Ö»ÊÇÎªÁËÏÔÊ¾¸÷ÖÖĞ­ÒéÓÃµÄ
  //Ì×½Ó¿Ú²ã³õÊ¼»¯sock_init  netfilter_initÔÚÌ×½Ó¿Ú²ã³õÊ¼»¯µÄÊ±ºòÒ²³õÊ¼»¯ÁË
+ *****************************************************/
 static int __init inet_init(void)
 {
 	struct sk_buff *dummy_skb;
