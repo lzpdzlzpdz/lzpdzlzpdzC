@@ -764,7 +764,7 @@ struct sock1 {
 #define sk_reuse		__sk_common.skc_reuse
 #define sk_bound_dev_if		__sk_common.skc_bound_dev_if
 #define sk_bind_node		__sk_common.skc_bind_node
-#define sk_prot			__sk_common.skc_prot//tcp_prot、udp_prot或者netlink_proto等  inet_create中赋值
+#define sk_prot			__sk_common.skc_prot//tcp_prot、udp_prot或者 netlink_proto 等  inet_create 中赋值
 #define sk_net			__sk_common.skc_net
 	kmemcheck_bitfield_begin(flags);
 	unsigned int		sk_shutdown  : 2,

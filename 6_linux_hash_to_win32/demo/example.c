@@ -4,11 +4,7 @@
 #define max_hash_slot_num 6
 #define max_entry_num 18
 
-static inline void INIT_LIST_NODE(struct list_head *list)
-{
-	list->next = NULL;
-	list->prev = NULL;
-}
+
 
 typedef struct _fsnode {
     int val;
