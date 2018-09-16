@@ -1,7 +1,7 @@
-﻿生成启动时间为 2018/9/16 14:21:52。
+﻿生成启动时间为 2018/9/16 22:17:54。
      1>项目“E:\8_Git\Git_C_Code\8_Linux_data_structure_App\My_Linux data structure_Win32\2_Linux_list_app\demo\demo.vcxproj”在节点 2 上(build 个目标)。
      1>InitializeBuildStatus:
-         正在创建“Debug\demo.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+         正在对“Debug\demo.unsuccessfulbuild”执行 Touch 任务。
        ClCompile:
          D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt my_list.c
          my_list.c
@@ -26,4 +26,4 @@
 
 生成成功。
 
-已用时间 00:00:02.09
+已用时间 00:00:02.41

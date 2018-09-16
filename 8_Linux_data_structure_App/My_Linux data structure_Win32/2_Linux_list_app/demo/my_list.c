@@ -3,7 +3,7 @@
 list_del(&(pbook->book_list_node));
 
 2. how to add a entry
-list_add_tail(&(pbook->book_list_node), &books_hlist_head);
+list_add_tail(&(pbook->book_list_node), &books_list_head);
 
 ********************************************************/
 #include<stdio.h>
@@ -16,16 +16,16 @@ struct list_head books_list_head = {0};
 
 void fun_book_list_head_init(void)
 {
-	INIT_LIST_HEAD(&books_hlist_head);
+	INIT_LIST_HEAD(&books_list_head);
 }
 
 void *fun_list_find_book_in_cabinet(char *bookname)
 {
-    hlist_book_struct *pbook = NULL;
-    hlist_book_struct *ptempbook = NULL;
+    list_book_struct *pbook = NULL;
+    list_book_struct *ptempbook = NULL;
     int ret;
 
-    list_for_each_entry_safe_ext(pbook, hlist_book_struct, ptempbook, &books_hlist_head, book_list_node)
+    list_for_each_entry_safe_ext(pbook, list_book_struct, ptempbook, &books_list_head, book_list_node)
     {
         ret = strcmp(pbook->bookname, bookname);
         if(FALSE == ret)
@@ -39,10 +39,10 @@ void *fun_list_find_book_in_cabinet(char *bookname)
 
 int  fun_list_add_book(char *bookname)
 {
-    hlist_book_struct *pbook = NULL;
+    list_book_struct *pbook = NULL;
 
-    pbook = (hlist_book_struct *)malloc(sizeof(hlist_book_struct));
-    memset(pbook,0, sizeof(hlist_book_struct));
+    pbook = (list_book_struct *)malloc(sizeof(list_book_struct));
+    memset(pbook,0, sizeof(list_book_struct));
 
 
 	pbook->useflag = TRUE;
@@ -50,7 +50,7 @@ int  fun_list_add_book(char *bookname)
 	strcpy(pbook->bookname,bookname);
 
 
-    list_add_tail(&(pbook->book_hlist_node), &books_hlist_head);
+    list_add_tail(&(pbook->book_list_node), &books_list_head);
 
 	printf("add book success, bookname = %s\n", bookname);
 	return TRUE;
@@ -58,10 +58,10 @@ int  fun_list_add_book(char *bookname)
 
 void fun_list_add_book_to_cabinet(char *bookname)
 {
-	hlist_book_struct *pbook = NULL;
+	list_book_struct *pbook = NULL;
 	int ret = 0;
 	
-	pbook = (hlist_book_struct*)fun_list_find_book_in_cabinet(bookname);
+	pbook = (list_book_struct*)fun_list_find_book_in_cabinet(bookname);
 
 	if (pbook == NULL)
 	{
@@ -80,9 +80,9 @@ void fun_list_add_book_to_cabinet(char *bookname)
 
 void fun_list_del_book_from_cabinet(char *bookname)
 {
-	hlist_book_struct *pbook = NULL;
+	list_book_struct *pbook = NULL;
 
-	pbook = (hlist_book_struct *)fun_list_find_book_in_cabinet(bookname);
+	pbook = (list_book_struct *)fun_list_find_book_in_cabinet(bookname);
 
 	if (pbook == NULL)
 	{
@@ -91,17 +91,17 @@ void fun_list_del_book_from_cabinet(char *bookname)
 	}
 
 	printf("del book = %s\n", pbook->bookname);
-	list_del(&(pbook->book_hlist_node));
+	list_del(&(pbook->book_list_node));
 	free(pbook);
 
 }
 
 void fun_list_print_all_books(void)
 {
-    hlist_book_struct *pbook = NULL;
-    hlist_book_struct *ptempbook = NULL;
+    list_book_struct *pbook = NULL;
+    list_book_struct *ptempbook = NULL;
 
-    list_for_each_entry_safe_ext(pbook, hlist_book_struct, ptempbook, &books_hlist_head, book_list_node)
+    list_for_each_entry_safe_ext(pbook, list_book_struct, ptempbook, &books_list_head, book_list_node)
     {
         if(pbook->useflag == TRUE)
         {

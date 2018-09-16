@@ -12,11 +12,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="list.h" />
-    <ClInclude Include="my_list.h" />
+    <ClInclude Include="my_queue.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="my_list.c" />
-    <ClCompile Include="my_list_main.c" />
+    <ClCompile Include="my_queue.c" />
+    <ClCompile Include="my_queue_main.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{DE7E255E-130D-4A7D-A626-D2B291372EEE}</ProjectGuid>
