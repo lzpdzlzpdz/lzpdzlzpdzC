@@ -1,14 +1,92 @@
----- hlist_book_struct Matches (14 in 1 files) ----
-fun_list_find_book_in_cabinet in my_list.c (My_Linux data structure_Win32\2_Linux_list_app\demo) :     hlist_book_struct *pbook = NULL;
-fun_list_find_book_in_cabinet in my_list.c (My_Linux data structure_Win32\2_Linux_list_app\demo) :     hlist_book_struct *ptempbook = NULL;
-fun_list_find_book_in_cabinet in my_list.c (My_Linux data structure_Win32\2_Linux_list_app\demo) :     list_for_each_entry_safe_ext(pbook, hlist_book_struct, ptempbook, &books_hlist_head, book_list_node)
-fun_list_add_book in my_list.c (My_Linux data structure_Win32\2_Linux_list_app\demo) :     hlist_book_struct *pbook = NULL;
-fun_list_add_book in my_list.c (My_Linux data structure_Win32\2_Linux_list_app\demo) :     pbook = (hlist_book_struct *)malloc(sizeof(hlist_book_struct));
-fun_list_add_book in my_list.c (My_Linux data structure_Win32\2_Linux_list_app\demo) :     memset(pbook,0, sizeof(hlist_book_struct));
-fun_list_add_book_to_cabinet in my_list.c (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	hlist_book_struct *pbook = NULL;
-fun_list_add_book_to_cabinet in my_list.c (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	pbook = (hlist_book_struct*)fun_list_find_book_in_cabinet(bookname);
-fun_list_del_book_from_cabinet in my_list.c (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	hlist_book_struct *pbook = NULL;
-fun_list_del_book_from_cabinet in my_list.c (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	pbook = (hlist_book_struct *)fun_list_find_book_in_cabinet(bookname);
-fun_list_print_all_books in my_list.c (My_Linux data structure_Win32\2_Linux_list_app\demo) :     hlist_book_struct *pbook = NULL;
-fun_list_print_all_books in my_list.c (My_Linux data structure_Win32\2_Linux_list_app\demo) :     hlist_book_struct *ptempbook = NULL;
-fun_list_print_all_books in my_list.c (My_Linux data structure_Win32\2_Linux_list_app\demo) :     list_for_each_entry_safe_ext(pbook, hlist_book_struct, ptempbook, &books_hlist_head, book_list_node)
+---- list_entry Matches (91 in 4 files) ----
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 11 : 		({ tpos = hlist_entry(pos, typeof(*tpos), member); 1;}); \
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 370 :  * list_entry - get the struct for this entry
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 375 : #define list_entry(ptr, type, member) \
+list_first_entry in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	list_entry((ptr)->next, type, member)
+list_next_entry in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	list_entry((pos)->member.next, pos_type, member)
+list_prev_entry in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	list_entry((pos)->member.prev, pos_type, member)
+list_for_each_entry_ext in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	for (pos = list_entry((head)->next, pos_type, member);	\
+list_for_each_entry_ext in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	     pos = list_entry(pos->member.next, pos_type, member))
+list_for_each_entry_reverse_ext in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	for (pos = list_entry((head)->prev, pos_type, member);	\
+list_for_each_entry_reverse_ext in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	     pos = list_entry(pos->member.prev, pos_type, member))
+list_prepare_entry_ext in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	((pos) ? : list_entry(head, pos_type, member))
+list_for_each_entry_continue_ext in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	for (pos = list_entry(pos->member.next, pos_type, member);	\
+list_for_each_entry_continue_ext in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	     pos = list_entry(pos->member.next, pos_type, member))
+list_for_each_entry_continue_reverse_ext in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	for (pos = list_entry(pos->member.prev, pos_type, member);	\
+list_for_each_entry_continue_reverse_ext in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	     pos = list_entry(pos->member.prev, pos_type, member))
+list_for_each_entry_from_ext in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	     pos = list_entry(pos->member.next, pos_type, member))
+list_for_each_entry_safe_ext in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	for (entry = list_entry((head)->next, entry_type, member),	\
+list_for_each_entry_safe_ext in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 		node = list_entry(entry->member.next, entry_type, member);	\
+list_for_each_entry_safe_ext in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	     entry = node, node = list_entry(node->member.next, entry_type, member))
+list_for_each_entry_safe_continue_ext in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	for (pos = list_entry(pos->member.next, pos_type, member), 		\
+list_for_each_entry_safe_continue_ext in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 		n = list_entry(pos->member.next, pos_type, member);		\
+list_for_each_entry_safe_continue_ext in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	     pos = n, n = list_entry(n->member.next, pos_type, member))
+list_for_each_entry_safe_from_ext in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	for (n = list_entry(pos->member.next, pos_type, member);		\
+list_for_each_entry_safe_from_ext in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	     pos = n, n = list_entry(n->member.next, pos_type, member))
+list_for_each_entry_safe_reverse_ext in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	for (pos = list_entry((head)->prev, pos_type, member),	\
+list_for_each_entry_safe_reverse_ext in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 		n = list_entry(pos->member.prev, pos_type, member);	\
+list_for_each_entry_safe_reverse_ext in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	     pos = n, n = list_entry(n->member.prev, pos_type, member))
+list_safe_reset_next_ext in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	n = list_entry(pos->member.next, pos_type, member)
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 722 : #define hlist_entry(ptr, type, member) container_of(ptr,type,member)
+hlist_for_each_entry_safe_ext in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	( entry = hlist_entry(pos, entry_type, entry_member),pos); \
+list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) line 11 : 		({ tpos = hlist_entry(pos, typeof(*tpos), member); 1;}); \
+list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) line 370 :  * list_entry - get the struct for this entry
+list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) line 375 : #define list_entry(ptr, type, member) \
+list_first_entry in list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) : 	list_entry((ptr)->next, type, member)
+list_next_entry in list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) : 	list_entry((pos)->member.next, pos_type, member)
+list_prev_entry in list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) : 	list_entry((pos)->member.prev, pos_type, member)
+list_for_each_entry_ext in list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) : 	for (pos = list_entry((head)->next, pos_type, member);	\
+list_for_each_entry_ext in list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) : 	     pos = list_entry(pos->member.next, pos_type, member))
+list_for_each_entry_reverse_ext in list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) : 	for (pos = list_entry((head)->prev, pos_type, member);	\
+list_for_each_entry_reverse_ext in list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) : 	     pos = list_entry(pos->member.prev, pos_type, member))
+list_prepare_entry_ext in list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) : 	((pos) ? : list_entry(head, pos_type, member))
+list_for_each_entry_continue_ext in list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) : 	for (pos = list_entry(pos->member.next, pos_type, member);	\
+list_for_each_entry_continue_ext in list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) : 	     pos = list_entry(pos->member.next, pos_type, member))
+list_for_each_entry_continue_reverse_ext in list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) : 	for (pos = list_entry(pos->member.prev, pos_type, member);	\
+list_for_each_entry_continue_reverse_ext in list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) : 	     pos = list_entry(pos->member.prev, pos_type, member))
+list_for_each_entry_from_ext in list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) : 	     pos = list_entry(pos->member.next, pos_type, member))
+list_for_each_entry_safe_ext in list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) : 	for (entry = list_entry((head)->next, entry_type, member),	\
+list_for_each_entry_safe_ext in list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) : 		node = list_entry(entry->member.next, entry_type, member);	\
+list_for_each_entry_safe_ext in list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) : 	     entry = node, node = list_entry(node->member.next, entry_type, member))
+list_for_each_entry_safe_continue_ext in list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) : 	for (pos = list_entry(pos->member.next, pos_type, member), 		\
+list_for_each_entry_safe_continue_ext in list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) : 		n = list_entry(pos->member.next, pos_type, member);		\
+list_for_each_entry_safe_continue_ext in list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) : 	     pos = n, n = list_entry(n->member.next, pos_type, member))
+list_for_each_entry_safe_from_ext in list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) : 	for (n = list_entry(pos->member.next, pos_type, member);		\
+list_for_each_entry_safe_from_ext in list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) : 	     pos = n, n = list_entry(n->member.next, pos_type, member))
+list_for_each_entry_safe_reverse_ext in list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) : 	for (pos = list_entry((head)->prev, pos_type, member),	\
+list_for_each_entry_safe_reverse_ext in list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) : 		n = list_entry(pos->member.prev, pos_type, member);	\
+list_for_each_entry_safe_reverse_ext in list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) : 	     pos = n, n = list_entry(n->member.prev, pos_type, member))
+list_safe_reset_next_ext in list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) : 	n = list_entry(pos->member.next, pos_type, member)
+list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) line 722 : #define hlist_entry(ptr, type, member) container_of(ptr,type,member)
+hlist_for_each_entry_safe_ext in list.h (My_Linux data structure_Win32\3_Linux_hlist_app\demo) : 	( entry = hlist_entry(pos, entry_type, entry_member),pos); \
+list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) line 11 : 		({ tpos = hlist_entry(pos, typeof(*tpos), member); 1;}); \
+list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) line 370 :  * list_entry - get the struct for this entry
+list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) line 375 : #define list_entry(ptr, type, member) \
+list_first_entry in list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) : 	list_entry((ptr)->next, type, member)
+list_next_entry in list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) : 	list_entry((pos)->member.next, pos_type, member)
+list_prev_entry in list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) : 	list_entry((pos)->member.prev, pos_type, member)
+list_for_each_entry_ext in list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) : 	for (pos = list_entry((head)->next, pos_type, member);	\
+list_for_each_entry_ext in list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) : 	     pos = list_entry(pos->member.next, pos_type, member))
+list_for_each_entry_reverse_ext in list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) : 	for (pos = list_entry((head)->prev, pos_type, member);	\
+list_for_each_entry_reverse_ext in list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) : 	     pos = list_entry(pos->member.prev, pos_type, member))
+list_prepare_entry_ext in list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) : 	((pos) ? : list_entry(head, pos_type, member))
+list_for_each_entry_continue_ext in list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) : 	for (pos = list_entry(pos->member.next, pos_type, member);	\
+list_for_each_entry_continue_ext in list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) : 	     pos = list_entry(pos->member.next, pos_type, member))
+list_for_each_entry_continue_reverse_ext in list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) : 	for (pos = list_entry(pos->member.prev, pos_type, member);	\
+list_for_each_entry_continue_reverse_ext in list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) : 	     pos = list_entry(pos->member.prev, pos_type, member))
+list_for_each_entry_from_ext in list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) : 	     pos = list_entry(pos->member.next, pos_type, member))
+list_for_each_entry_safe_ext in list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) : 	for (entry = list_entry((head)->next, entry_type, member),	\
+list_for_each_entry_safe_ext in list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) : 		node = list_entry(entry->member.next, entry_type, member);	\
+list_for_each_entry_safe_ext in list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) : 	     entry = node, node = list_entry(node->member.next, entry_type, member))
+list_for_each_entry_safe_continue_ext in list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) : 	for (pos = list_entry(pos->member.next, pos_type, member), 		\
+list_for_each_entry_safe_continue_ext in list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) : 		n = list_entry(pos->member.next, pos_type, member);		\
+list_for_each_entry_safe_continue_ext in list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) : 	     pos = n, n = list_entry(n->member.next, pos_type, member))
+list_for_each_entry_safe_from_ext in list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) : 	for (n = list_entry(pos->member.next, pos_type, member);		\
+list_for_each_entry_safe_from_ext in list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) : 	     pos = n, n = list_entry(n->member.next, pos_type, member))
+list_for_each_entry_safe_reverse_ext in list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) : 	for (pos = list_entry((head)->prev, pos_type, member),	\
+list_for_each_entry_safe_reverse_ext in list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) : 		n = list_entry(pos->member.prev, pos_type, member);	\
+list_for_each_entry_safe_reverse_ext in list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) : 	     pos = n, n = list_entry(n->member.prev, pos_type, member))
+list_safe_reset_next_ext in list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) : 	n = list_entry(pos->member.next, pos_type, member)
+list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) line 722 : #define hlist_entry(ptr, type, member) container_of(ptr,type,member)
+hlist_for_each_entry_safe_ext in list.h (My_Linux data structure_Win32\4_Linux_queue_app\demo) : 	( entry = hlist_entry(pos, entry_type, entry_member),pos); \
+fun_queue_pop_book_from_cabinet in my_queue.c (My_Linux data structure_Win32\4_Linux_queue_app\demo) : 	pbook = list_entry(books_queue_head.next, queue_book_struct, book_queue_node);

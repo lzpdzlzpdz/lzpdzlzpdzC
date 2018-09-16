@@ -27,7 +27,21 @@ void fun_book_hlist_head_init(void)
 
 int fun_book_cal_hash(char *bookname)
 {
-    return 1;
+    char *pos = NULL;
+    unsigned int str_val = 0;
+
+    if(NULL == bookname)
+    {
+        return 0;
+    }
+
+    for(pos = bookname; *pos; pos++)
+    {
+        str_val = str_val*31 + *pos;
+    }
+
+    printf("str_val = %lu, hash_value = %lu\n", str_val, str_val%books_hash_max_slot);
+    return str_val%books_hash_max_slot;
 }
 
 void *fun_hlist_find_book_in_cabinet(char *bookname)
@@ -37,7 +51,7 @@ void *fun_hlist_find_book_in_cabinet(char *bookname)
     hlist_node_t *tpos = NULL;
     int ret;
 
-	hlist_for_each_entry_safe_ext(pbook, hlist_book_struct, pos, tpos, &books_hlist_head[fun_book_cal_hash(bookname)], book_hlist_node)
+    hlist_for_each_entry_safe_ext(pbook, hlist_book_struct, pos, tpos, &books_hlist_head[fun_book_cal_hash(bookname)], book_hlist_node)
     {
         ret = strcmp(pbook->bookname, bookname);
         if(FALSE == ret)
@@ -105,7 +119,6 @@ void fun_hlist_del_book_from_cabinet(char *bookname)
 	printf("del book = %s\n", pbook->bookname);
 	hlist_del(&(pbook->book_hlist_node));
 	free(pbook);
-
 }
 
 void fun_hlist_print_all_books(void)
