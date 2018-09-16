@@ -119,7 +119,6 @@ void fun_hlist_del_book_from_cabinet(char *bookname)
 	printf("del book = %s\n", pbook->bookname);
 	hlist_del(&(pbook->book_hlist_node));
 	free(pbook);
-
 }
 
 void fun_hlist_print_all_books(void)
