@@ -1,0 +1,124 @@
+﻿生成启动时间为 2018/7/29 15:37:01。
+     1>项目“E:\8_Git\Git_C_Code\3_Linux-Kernel-Linked-List-Demo\demo\demo\demo.vcxproj”在节点 2 上(rebuild 个目标)。
+     1>PrepareForBuild:
+         正在创建目录“E:\8_Git\Git_C_Code\3_Linux-Kernel-Linked-List-Demo\demo\Release\”。
+       InitializeBuildStatus:
+         正在创建“Release\demo.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt main.c
+         main.c
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(79): error C2054: 在“inline”之后应输入“(”
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(80): error C2085: “__list_add”: 不在形参表中
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(80): error C2143: 语法错误 : 缺少“;”(在“{”的前面)
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(95): error C2054: 在“inline”之后应输入“(”
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(96): error C2085: “list_add”: 不在形参表中
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(96): error C2143: 语法错误 : 缺少“;”(在“{”的前面)
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(108): error C2054: 在“inline”之后应输入“(”
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(109): error C2085: “list_add_tail”: 不在形参表中
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(109): error C2143: 语法错误 : 缺少“;”(在“{”的前面)
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(121): error C2054: 在“inline”之后应输入“(”
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(122): error C2085: “__list_del”: 不在形参表中
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(122): error C2143: 语法错误 : 缺少“;”(在“{”的前面)
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(133): error C2054: 在“inline”之后应输入“(”
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(134): error C2085: “list_del”: 不在形参表中
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(134): error C2143: 语法错误 : 缺少“;”(在“{”的前面)
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(146): error C2054: 在“inline”之后应输入“(”
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(147): error C2085: “list_del_init”: 不在形参表中
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(147): error C2143: 语法错误 : 缺少“;”(在“{”的前面)
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(157): error C2054: 在“inline”之后应输入“(”
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(158): error C2085: “list_move”: 不在形参表中
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(158): error C2143: 语法错误 : 缺少“;”(在“{”的前面)
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(168): error C2054: 在“inline”之后应输入“(”
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(170): error C2085: “list_move_tail”: 不在形参表中
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(170): error C2143: 语法错误 : 缺少“;”(在“{”的前面)
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(179): error C2054: 在“inline”之后应输入“(”
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(180): error C2085: “list_empty”: 不在形参表中
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(180): error C2143: 语法错误 : 缺少“;”(在“{”的前面)
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(184): error C2054: 在“inline”之后应输入“(”
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(186): error C2085: “__list_splice”: 不在形参表中
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(186): error C2143: 语法错误 : 缺少“;”(在“{”的前面)
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(203): error C2054: 在“inline”之后应输入“(”
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(204): error C2085: “list_splice”: 不在形参表中
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(204): error C2143: 语法错误 : 缺少“;”(在“{”的前面)
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(216): error C2054: 在“inline”之后应输入“(”
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(218): error C2085: “list_splice_init”: 不在形参表中
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(218): error C2143: 语法错误 : 缺少“;”(在“{”的前面)
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(384): error C2054: 在“inline”之后应输入“(”
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(385): error C2085: “hlist_unhashed”: 不在形参表中
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(385): error C2143: 语法错误 : 缺少“;”(在“{”的前面)
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(389): error C2054: 在“inline”之后应输入“(”
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(390): error C2085: “hlist_empty”: 不在形参表中
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(390): error C2143: 语法错误 : 缺少“;”(在“{”的前面)
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(394): error C2054: 在“inline”之后应输入“(”
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(395): error C2085: “__hlist_del”: 不在形参表中
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(395): error C2143: 语法错误 : 缺少“;”(在“{”的前面)
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(403): error C2054: 在“inline”之后应输入“(”
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(404): error C2085: “hlist_del”: 不在形参表中
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(404): error C2143: 语法错误 : 缺少“;”(在“{”的前面)
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(411): error C2054: 在“inline”之后应输入“(”
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(412): error C2085: “hlist_del_init”: 不在形参表中
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(412): error C2143: 语法错误 : 缺少“;”(在“{”的前面)
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(419): error C2054: 在“inline”之后应输入“(”
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(420): error C2085: “hlist_add_head”: 不在形参表中
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(420): error C2143: 语法错误 : 缺少“;”(在“{”的前面)
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(432): error C2054: 在“inline”之后应输入“(”
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(434): error C2085: “hlist_add_before”: 不在形参表中
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(434): error C2143: 语法错误 : 缺少“;”(在“{”的前面)
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(441): error C2054: 在“inline”之后应输入“(”
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(443): error C2085: “hlist_add_after”: 不在形参表中
+     1>e:\8_git\git_c_code\3_linux-kernel-linked-list-demo\demo\demo\list.h(443): error C2143: 语法错误 : 缺少“;”(在“{”的前面)
+     1>main.c(40): error C2143: 语法错误 : 缺少“;”(在“类型”的前面)
+     1>main.c(41): error C2065: “dptr”: 未声明的标识符
+     1>main.c(41): warning C4047: “==”:“void *”与“int”的间接级别不同
+     1>main.c(46): error C2065: “dptr”: 未声明的标识符
+     1>main.c(46): error C2223: “->name”的左侧必须指向结构/联合
+     1>main.c(46): warning C4047: “函数”:“const char *”与“int”的间接级别不同
+     1>main.c(46): warning C4024: “strncpy”: 形参和实参 2 的类型不同
+     1>main.c(46): error C2198: “strncpy”: 用于调用的参数太少
+     1>main.c(47): error C2065: “dptr”: 未声明的标识符
+     1>main.c(47): error C2223: “->list”的左侧必须指向结构/联合
+     1>main.c(47): error C2065: “dptr”: 未声明的标识符
+     1>main.c(47): error C2223: “->list”的左侧必须指向结构/联合
+     1>main.c(47): error C2065: “dptr”: 未声明的标识符
+     1>main.c(47): error C2223: “->list”的左侧必须指向结构/联合
+     1>main.c(47): error C2065: “dptr”: 未声明的标识符
+     1>main.c(47): error C2223: “->list”的左侧必须指向结构/联合
+     1>main.c(48): error C2065: “dptr”: 未声明的标识符
+     1>main.c(48): error C2223: “->lab_head”的左侧必须指向结构/联合
+     1>main.c(48): error C2065: “dptr”: 未声明的标识符
+     1>main.c(48): error C2223: “->lab_head”的左侧必须指向结构/联合
+     1>main.c(48): error C2065: “dptr”: 未声明的标识符
+     1>main.c(48): error C2223: “->lab_head”的左侧必须指向结构/联合
+     1>main.c(48): error C2065: “dptr”: 未声明的标识符
+     1>main.c(48): error C2223: “->lab_head”的左侧必须指向结构/联合
+     1>main.c(49): warning C4013: “list_add_tail”未定义；假设外部返回 int
+     1>main.c(49): error C2065: “dptr”: 未声明的标识符
+     1>main.c(49): error C2223: “->list”的左侧必须指向结构/联合
+     1>main.c(64): error C2143: 语法错误 : 缺少“;”(在“类型”的前面)
+     1>main.c(65): error C2275: “department”: 将此类型用作表达式非法
+                 main.c(26) : 参见“department”的声明
+     1>main.c(65): error C2065: “dptr”: 未声明的标识符
+     1>main.c(66): error C2065: “iterate”: 未声明的标识符
+     1>main.c(66): warning C4047: “=”:“int”与“list_head *”的间接级别不同
+     1>main.c(66): error C2065: “iterate”: 未声明的标识符
+     1>main.c(66): warning C4047: “!=”:“int”与“list_head *”的间接级别不同
+     1>main.c(66): error C2065: “iterate”: 未声明的标识符
+     1>main.c(66): error C2065: “iterate”: 未声明的标识符
+     1>main.c(66): error C2223: “->next”的左侧必须指向结构/联合
+     1>main.c(68): error C2065: “dptr”: 未声明的标识符
+     1>main.c(68): error C2059: 语法错误:“{”
+     1>main.c(68): error C2065: “__mptr”: 未声明的标识符
+     1>main.c(68): error C2143: 语法错误 : 缺少“;”(在“)”的前面)
+     1>main.c(69): error C2065: “dptr”: 未声明的标识符
+     1>main.c(69): error C2223: “->name”的左侧必须指向结构/联合
+     1>main.c(69): error C2168: “strcmp”: 内部函数的实参太少
+     1>main.c(71): error C2065: “dptr”: 未声明的标识符
+     1>main.c(71): error C2223: “->lab_head”的左侧必须指向结构/联合
+     1>main.c(71): warning C4033: “find_lab_head”必须返回值
+     1>main.c(74): error C2143: 语法错误 : 缺少“)”(在“字符串”的前面)
+     1>main.c(74): fatal error C1003: 错误计数超过 100；正在停止编译
+     1>已完成生成项目“E:\8_Git\Git_C_Code\3_Linux-Kernel-Linked-List-Demo\demo\demo\demo.vcxproj”(rebuild 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:00.41
