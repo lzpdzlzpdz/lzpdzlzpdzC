@@ -27,7 +27,21 @@ void fun_book_hlist_head_init(void)
 
 int fun_book_cal_hash(char *bookname)
 {
-    return 1;
+    char *pos = NULL;
+    unsigned int str_val = 0;
+
+    if(NULL == bookname)
+    {
+        return 0;
+    }
+
+    for(pos = bookname; *pos; pos++)
+    {
+        str_val = str_val*31 + *pos;
+    }
+
+    printf("str_val = %lu, hash_value = %lu\n", str_val, str_val%books_hash_max_slot);
+    return str_val%books_hash_max_slot;
 }
 
 void *fun_hlist_find_book_in_cabinet(char *bookname)
