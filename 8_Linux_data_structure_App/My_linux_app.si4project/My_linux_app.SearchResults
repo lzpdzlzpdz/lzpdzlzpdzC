@@ -1,0 +1,57 @@
+---- list_head Matches (62 in 1 files) ----
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 32 : /*list_node = list_head*/
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 33 : typedef struct list_head {
+list_head in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	struct list_head *next,*prev;
+LIST_HEAD in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	struct list_head name = LIST_HEAD_INIT(name)
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 52 : static inline void INIT_LIST_NODE(struct list_head *list)
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 58 : static inline void INIT_LIST_HEAD(struct list_head *list)
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 70 : static inline void __list_add(struct list_head *entry,
+__list_add in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 			      struct list_head *prev,
+__list_add in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 			      struct list_head *next)
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 88 : static inline void list_add(struct list_head *entry, struct list_head *head)
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 102 : static inline void list_add_tail(struct list_head *list, struct list_head *head)
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 114 : static inline void __list_del(struct list_head * prev, struct list_head * next)
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 126 : static inline void __list_del_entry(struct list_head *entry)
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 131 : static inline void list_del(struct list_head *entry)
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 145 : static inline void list_replace(struct list_head *old,
+list_replace in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 				struct list_head *entry)
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 154 : static inline void list_replace_init(struct list_head *old,
+list_replace_init in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 					struct list_head *entry)
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 165 : static inline void list_del_init(struct list_head *entry)
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 176 : static inline void list_move(struct list_head *list, struct list_head *head)
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 187 : static inline void list_move_tail(struct list_head *list,
+list_move_tail in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 				  struct list_head *head)
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 199 : static inline int list_is_last(const struct list_head *list,
+list_is_last in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 				const struct list_head *head)
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 209 : static inline int list_empty(const struct list_head *head)
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 227 : static inline int list_empty_careful(const struct list_head *head)
+list_empty_careful in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	struct list_head *next = head->next;
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 237 : static inline void list_rotate_left(struct list_head *head)
+list_rotate_left in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	struct list_head *first;
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 251 : static inline int list_is_singular(const struct list_head *head)
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 256 : static inline void __list_cut_position(struct list_head *list,
+__list_cut_position in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 		struct list_head *head, struct list_head *entry)
+__list_cut_position in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	struct list_head *entry_first = entry->next;
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 282 : static inline void list_cut_position(struct list_head *list,
+list_cut_position in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 		struct list_head *head, struct list_head *entry)
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 296 : static inline void __list_splice(const struct list_head *list,
+__list_splice in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 				 struct list_head *prev,
+__list_splice in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 				 struct list_head *next)
+__list_splice in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	struct list_head *first = list->next;
+__list_splice in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 	struct list_head *last = list->prev;
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 315 : static inline void list_splice(const struct list_head *list,
+list_splice in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 				struct list_head *head)
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 327 : static inline void list_splice_tail(struct list_head *list,
+list_splice_tail in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 				struct list_head *head)
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 341 : static inline void list_splice_init(struct list_head *list,
+list_splice_init in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 				    struct list_head *head)
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 358 : static inline void list_splice_tail_init(struct list_head *list,
+list_splice_tail_init in list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) : 					 struct list_head *head)
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 369 :  * @ptr:	the &struct list_head pointer.
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 416 :  * @pos:	the &struct list_head to use as a loop cursor.
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 424 :  * @pos:	the &struct list_head to use as a loop cursor.
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 435 :  * @pos:	the &struct list_head to use as a loop cursor.
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 443 :  * @pos:	the &struct list_head to use as a loop cursor.
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 444 :  * @n:		another &struct list_head to use as temporary storage
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 453 :  * @pos:	the &struct list_head to use as a loop cursor.
+list.h (My_Linux data structure_Win32\2_Linux_list_app\demo) line 454 :  * @n:		another &struct list_head to use as temporary storage

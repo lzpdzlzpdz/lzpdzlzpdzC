@@ -13,6 +13,8 @@ GNU C transplant to ANSI C
 (1) cannot use typeof(*tpos) in ANSI C
 (2) cannot use {xxx;1:} in ANSI C
 (3) cannot define a parameter in Macro in ANSI C.
+
+2018.9.16 modify by lzpdz
 ************************************************/
 #ifndef _LINUX_LIST_H
 #define _LINUX_LIST_H
@@ -62,19 +64,19 @@ static inline void INIT_LIST_HEAD(struct list_head *list)
 }
 
 /*
- * Insert a entry entry between two known consecutive entries.
+ * Insert a new entry between two known consecutive entries.
  *
  * This is only for internal list manipulation where we know
  * the prev/next entries already!
  */
-static inline void __list_add(struct list_head *entry,
+static inline void __list_add(struct list_head *list_n,
 			      struct list_head *prev,
 			      struct list_head *next)
 {
-	next->prev = entry;
-	entry->next = next;
-	entry->prev = prev;
-	prev->next = entry;
+	next->prev = list_n;
+	list_n->next = next;
+	list_n->prev = prev;
+	prev->next = list_n;
 }
 
 /**
@@ -85,9 +87,9 @@ static inline void __list_add(struct list_head *entry,
  * Insert a entry entry after the specified head.
  * This is good for implementing stacks.
  */
-static inline void list_add(struct list_head *entry, struct list_head *head)
+static inline void list_add(struct list_head *list_n, struct list_head *head)
 {
-	__list_add(entry, head, head->next);
+	__list_add(list_n, head, head->next);
 }
 
 
@@ -99,9 +101,9 @@ static inline void list_add(struct list_head *entry, struct list_head *head)
  * Insert a entry entry before the specified head.
  * This is useful for implementing queues.
  */
-static inline void list_add_tail(struct list_head *entry, struct list_head *head)
+static inline void list_add_tail(struct list_head *list_n, struct list_head *head)
 {
-	__list_add(entry, head->prev, head);
+	__list_add(list_n, head->prev, head);
 }
 
 /*
@@ -123,16 +125,16 @@ static inline void __list_del(struct list_head * prev, struct list_head * next)
  * Note: list_empty() on entry does not return true after this, the entry is
  * in an undefined state.
  */
-static inline void __list_del_entry(struct list_head *entry)
+static inline void __list_del_entry(struct list_head *list_n)
 {
-	__list_del(entry->prev, entry->next);
+	__list_del(list_n->prev, list_n->next);
 }
 
-static inline void list_del(struct list_head *entry)
+static inline void list_del(struct list_head *list_n)
 {
-	__list_del(entry->prev, entry->next);
-	entry->next = LIST_POISON1;
-	entry->prev = LIST_POISON2;
+	__list_del(list_n->prev, list_n->next);
+	list_n->next = LIST_POISON1;
+	list_n->prev = LIST_POISON2;
 }
 
 /**
@@ -143,18 +145,18 @@ static inline void list_del(struct list_head *entry)
  * If @old was empty, it will be overwritten.
  */
 static inline void list_replace(struct list_head *old,
-				struct list_head *entry)
+				struct list_head *list_n)
 {
-	entry->next = old->next;
-	entry->next->prev = entry;
-	entry->prev = old->prev;
-	entry->prev->next = entry;
+	list_n->next = old->next;
+	list_n->next->prev = list_n;
+	list_n->prev = old->prev;
+	list_n->prev->next = list_n;
 }
 
 static inline void list_replace_init(struct list_head *old,
-					struct list_head *entry)
+					struct list_head *list_n)
 {
-	list_replace(old, entry);
+	list_replace(old, list_n);
 	INIT_LIST_HEAD(old);
 }
 
@@ -162,10 +164,10 @@ static inline void list_replace_init(struct list_head *old,
  * list_del_init - deletes entry from list and reinitialize it.
  * @entry: the element to delete from the list.
  */
-static inline void list_del_init(struct list_head *entry)
+static inline void list_del_init(struct list_head *list_n)
 {
-	__list_del_entry(entry);
-	INIT_LIST_HEAD(entry);
+	__list_del_entry(list_n);
+	INIT_LIST_HEAD(list_n);
 }
 
 /**
@@ -254,15 +256,15 @@ static inline int list_is_singular(const struct list_head *head)
 }
 
 static inline void __list_cut_position(struct list_head *list,
-		struct list_head *head, struct list_head *entry)
+		struct list_head *head, struct list_head *list_n)
 {
-	struct list_head *entry_first = entry->next;
+	struct list_head *list_n_first = list_n->next;
 	list->next = head->next;
 	list->next->prev = list;
-	list->prev = entry;
-	entry->next = list;
-	head->next = entry_first;
-	entry_first->prev = head;
+	list->prev = list_n;
+	list_n->next = list;
+	head->next = list_n_first;
+	list_n_first->prev = head;
 }
 
 /**
@@ -280,17 +282,17 @@ static inline void __list_cut_position(struct list_head *list,
  *
  */
 static inline void list_cut_position(struct list_head *list,
-		struct list_head *head, struct list_head *entry)
+		struct list_head *head, struct list_head *list_n)
 {
 	if (list_empty(head))
 		return;
 	if (list_is_singular(head) &&
-		(head->next != entry && head != entry))
+		(head->next != list_n && head != list_n))
 		return;
-	if (entry == head)
+	if (list_n == head)
 		INIT_LIST_HEAD(list);
 	else
-		__list_cut_position(list, head, entry);
+		__list_cut_position(list, head, list_n);
 }
 
 static inline void __list_splice(const struct list_head *list,
@@ -309,7 +311,7 @@ static inline void __list_splice(const struct list_head *list,
 
 /**
  * list_splice - join two lists, this is designed for stacks
- * @list: the entry list to add.
+ * @list: the new list to add.
  * @head: the place to add it in the first list.
  */
 static inline void list_splice(const struct list_head *list,
@@ -349,7 +351,7 @@ static inline void list_splice_init(struct list_head *list,
 
 /**
  * list_splice_tail_init - join two lists and reinitialise the emptied list
- * @list: the entry list to add.
+ * @list: the new list to add.
  * @head: the place to add it in the first list.
  *
  * Each of the lists is a queue.
@@ -709,11 +711,11 @@ static inline void hlist_add_fake(struct hlist_node *n)
  * reference of the first entry if it exists.
  */
 static inline void hlist_move_list(struct hlist_head *old,
-				   struct hlist_head *entry)
+				   struct hlist_head *list_n)
 {
-	entry->first = old->first;
-	if (entry->first)
-		entry->first->pprev = &entry->first;
+	list_n->first = old->first;
+	if (list_n->first)
+		list_n->first->pprev = &list_n->first;
 	old->first = NULL;
 }
 
