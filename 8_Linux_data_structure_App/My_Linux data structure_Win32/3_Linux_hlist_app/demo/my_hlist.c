@@ -51,7 +51,7 @@ void *fun_hlist_find_book_in_cabinet(char *bookname)
     hlist_node_t *tpos = NULL;
     int ret;
 
-	hlist_for_each_entry_safe_ext(pbook, hlist_book_struct, pos, tpos, &books_hlist_head[fun_book_cal_hash(bookname)], book_hlist_node)
+    hlist_for_each_entry_safe_ext(pbook, hlist_book_struct, pos, tpos, &books_hlist_head[fun_book_cal_hash(bookname)], book_hlist_node)
     {
         ret = strcmp(pbook->bookname, bookname);
         if(FALSE == ret)
