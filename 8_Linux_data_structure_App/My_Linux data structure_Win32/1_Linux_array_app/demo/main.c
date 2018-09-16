@@ -3,6 +3,8 @@
 
 void main()
 {
+	printf("my array demo\n");
+
 	//add book 
 	fun_add_book_to_cabinet("sanguoyanyi");
 	fun_add_book_to_cabinet("xiyouji");
