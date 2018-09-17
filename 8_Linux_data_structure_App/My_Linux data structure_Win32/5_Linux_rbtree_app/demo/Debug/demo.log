@@ -1,0 +1,37 @@
+﻿生成启动时间为 2018/9/17 21:48:32。
+     1>项目“E:\8_Git\Git_C_Code\8_Linux_data_structure_App\My_Linux data structure_Win32\5_Linux_rbtree_app\demo\demo.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Debug\demo.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt my_rbtree.c
+         my_rbtree.c
+     1>e:\8_git\git_c_code\8_linux_data_structure_app\my_linux data structure_win32\5_linux_rbtree_app\demo\rbtree.h(72): warning C4005: “rb_entry”: 宏重定义
+                 e:\8_git\git_c_code\8_linux_data_structure_app\my_linux data structure_win32\5_linux_rbtree_app\demo\rbtree.h(67) : 参见“rb_entry”的前一个定义
+     1>e:\8_git\git_c_code\8_linux_data_structure_app\my_linux data structure_win32\5_linux_rbtree_app\demo\my_rbtree.c(38): warning C4013: “rbtree_compare”未定义；假设外部返回 int
+     1>e:\8_git\git_c_code\8_linux_data_structure_app\my_linux data structure_win32\5_linux_rbtree_app\demo\my_rbtree.c(58): warning C4133: “函数”: 从“rbtree_book_struct *”到“const char *”的类型不兼容
+     1>e:\8_git\git_c_code\8_linux_data_structure_app\my_linux data structure_win32\5_linux_rbtree_app\demo\my_rbtree.c(58): warning C4133: “函数”: 从“rbtree_book_struct *”到“const char *”的类型不兼容
+     1>e:\8_git\git_c_code\8_linux_data_structure_app\my_linux data structure_win32\5_linux_rbtree_app\demo\my_rbtree.c(74): warning C4133: “函数”: 从“char [60]”到“rbtree_book_struct *”的类型不兼容
+     1>e:\8_git\git_c_code\8_linux_data_structure_app\my_linux data structure_win32\5_linux_rbtree_app\demo\my_rbtree.c(74): warning C4133: “函数”: 从“char [60]”到“rbtree_book_struct *”的类型不兼容
+     1>e:\8_git\git_c_code\8_linux_data_structure_app\my_linux data structure_win32\5_linux_rbtree_app\demo\my_rbtree.c(106): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
+       ManifestResourceCompile:
+         所有输出均为最新。
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\8_Git\Git_C_Code\8_Linux_data_structure_App\My_Linux data structure_Win32\5_Linux_rbtree_app\Debug\demo.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\demo.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\8_Git\Git_C_Code\8_Linux_data_structure_App\My_Linux data structure_Win32\5_Linux_rbtree_app\Debug\demo.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\8_Git\Git_C_Code\8_Linux_data_structure_App\My_Linux data structure_Win32\5_Linux_rbtree_app\Debug\demo.lib" /MACHINE:X86 Debug\demo.exe.embed.manifest.res
+         Debug\my_rbtree.obj
+         Debug\my_rbtree_main.obj
+         Debug\rbtree.obj
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\demo.exe.embed.manifest" /manifest Debug\demo.exe.intermediate.manifest
+         所有输出均为最新。
+       LinkEmbedManifest:
+         所有输出均为最新。
+         demo.vcxproj -> E:\8_Git\Git_C_Code\8_Linux_data_structure_App\My_Linux data structure_Win32\5_Linux_rbtree_app\Debug\demo.exe
+       FinalizeBuildStatus:
+         正在删除文件“Debug\demo.unsuccessfulbuild”。
+         正在对“Debug\demo.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\8_Git\Git_C_Code\8_Linux_data_structure_App\My_Linux data structure_Win32\5_Linux_rbtree_app\demo\demo.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:02.48
