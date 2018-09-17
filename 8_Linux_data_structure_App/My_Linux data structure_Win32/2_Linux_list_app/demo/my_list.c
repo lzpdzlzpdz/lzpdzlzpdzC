@@ -5,7 +5,9 @@ list_del(&(pbook->book_list_node));
 2. how to add a entry
 list_add_tail(&(pbook->book_list_node), &books_list_head);
 
+2018.9.17 create by lzpdz
 ********************************************************/
+
 #include<stdio.h>
 #include <string.h>
 #include"my_list.h"

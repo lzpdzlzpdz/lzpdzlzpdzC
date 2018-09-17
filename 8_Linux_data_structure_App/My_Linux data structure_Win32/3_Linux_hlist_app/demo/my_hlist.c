@@ -5,6 +5,7 @@ struct hlist_head books_hlist_head[books_hash_max_slot] = {0};
 2. how to cal a hash value
 int fun_book_cal_hash(char *bookname)
 
+2018.9.17 create by lzpdz
 ********************************************************/
 #include<stdio.h>
 #include <string.h>
